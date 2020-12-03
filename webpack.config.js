@@ -109,6 +109,10 @@ devWebpackConfig = {
       // minChunks: 2
       minChunks: Infinity
     }),
+    // 创建一个在编译时可以配置的全局常量,将环境变量设置成全局，在js中可以使用
+    new webpack.DefinePlugin({
+      'NODE_ENV_PUBLIC': JSON.stringify(process.env.NODE_ENV)
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new OpenBrowserPlugin({url: `http://localhost:${devPort}`}) //自动打开浏览器
   ]
